@@ -75,7 +75,6 @@ class PublicUserApiTests(TestCase):
         payload = {
             'email': user_details['email'],
             'password': user_details['password'],
-            'name': user_details['name'],
         }
         res = self.client.post(TOKEN_URL, payload)
         self.assertIn('token', res.data)
