@@ -21,8 +21,7 @@ services:
       - DB_USER=devuser
       - DB_PASS=changeme
     depends_on:
-      db:
-        condition: service_healthy
+      - db
 
   db:
     image: postgres:13-alpine
@@ -34,11 +33,6 @@ services:
       POSTGRES_DB: devdb
       POSTGRES_USER: devuser
       POSTGRES_PASSWORD: changeme
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U devuser"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4
