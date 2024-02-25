@@ -26,7 +26,7 @@ def create_user(email='user@example.com', password='testpass123'):
 class PublicTagsApiTests(TestCase):
     """Test unauthenticated API requests"""
 
-    def setUP(self):
+    def setUp(self):
         self.client = APIClient()
 
     def test_auth_required(self):
